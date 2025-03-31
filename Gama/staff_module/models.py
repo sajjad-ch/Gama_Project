@@ -40,5 +40,5 @@ class HumanRecourceNeed(models.Model):
         return f'{self.first_name} {self.last_name} {self.department}'
     
     class Meta:
-        verbose_name = 'همکاری'
-        verbose_name_plural = 'همکاری ها'
+        verbose_name = 'درخواست منابع انسانی'
+        verbose_name_plural = 'درخواست های منابع انساانی'
