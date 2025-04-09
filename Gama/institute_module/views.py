@@ -15,23 +15,14 @@ class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
     # permission_classes = [permissions.IsAdminUser]
 
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
-
 
 class RegisteraionViewSet(viewsets.ModelViewSet):
     queryset = Registeration.objects.all()
     serializer_class = RegisterationSerializer
     permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
-
 
 class SliderViewSet(viewsets.ModelViewSet):
     queryset = Slider.objects.all()
     serializer_class = SliderSerializer
     # permission_classes = [permissions.IsAdminUser]
-
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)

@@ -16,17 +16,11 @@ class DepartmentViewSet(viewsets.ModelViewSet):
     serializer_class = DepartmentSerializer
     # permission_classes = [permissions.IsAdminUser]
 
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
-
 
 class CollabrationsViewSet(viewsets.ModelViewSet):
     queryset = Collabrations.objects.all()
     serializer_class = CollabrationsSerializer
     permission_classes = [permissions.AllowAny]
-
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
 
 
 class HumanRecourceNeedViewSet(viewsets.ModelViewSet):
@@ -34,5 +28,3 @@ class HumanRecourceNeedViewSet(viewsets.ModelViewSet):
     serializer_class = HumanRecourceNeedSerializer
     permission_classes = [permissions.AllowAny]
     
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
