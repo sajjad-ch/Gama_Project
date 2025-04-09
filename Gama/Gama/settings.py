@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # outside_apps
+    'rest_framework',
+    
     # custom_apps
     "user_module",
     "staff_module",
