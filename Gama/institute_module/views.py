@@ -26,3 +26,9 @@ class SliderViewSet(viewsets.ModelViewSet):
     queryset = Slider.objects.all()
     serializer_class = SliderSerializer
     # permission_classes = [permissions.IsAdminUser]
+
+
+class CommentAndSuggestionViewSet(viewsets.ModelViewSet):
+    queryset = CommentsAndSuggestions.objects.all()
+    serializer_class = CommentsAndSuggestionsSerializer
+    permission_classes = [permissions.AllowAny]

@@ -21,3 +21,10 @@ class SliderSerializer(serializers.ModelSerializer):
         model = Slider
         fields = "__all__"
         read_only_fields = ['id']
+
+
+class CommentsAndSuggestionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CommentsAndSuggestions
+        fields = "__all__"
+        read_only_fields = ['id']

@@ -41,6 +41,18 @@ class Registeration(models.Model):
         verbose_name_plural = 'ثبت نامی ها'
 
 
+class CommentsAndSuggestions(models.Model):
+    first_name_and_last_name = models.CharField(max_length=128, verbose_name='نام و نام خانوادگی')
+    phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
+    comment_or_suggestion = models.TextField()
+
+    def __str__(self):
+        return f'{self.first_name_and_last_name} با شماره همراه {self.phone_number}'
+    
+    class Meta:
+        verbose_name = 'نظر یا پیشنهاد'
+        verbose_name_plural = 'نظرات و پیشنهادات' 
+
 
 class Slider(models.Model):
     slider_name = models.CharField(max_length=128, verbose_name='نام اسلایدر')
