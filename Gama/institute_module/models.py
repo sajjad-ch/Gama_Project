@@ -15,6 +15,7 @@ class Course(models.Model):
     course_level = models.CharField(max_length=128, null=True, blank=True, verbose_name='سطح')
     course_age = models.CharField(max_length=128, verbose_name='سن دوره', choices=course_age)
     course_session_number = models.PositiveSmallIntegerField(verbose_name='تعداد جلسات')
+    rank = models.FloatField(verbose_name='امتیاز دوره', default=0.0)
     is_active = models.BooleanField(default=False, verbose_name='فعال/غیر فعال')
     is_registering = models.BooleanField(default=False, verbose_name='در حال ثبت نام')
     is_completing_registering = models.BooleanField(default=False, verbose_name='تکمیل ظرفیت')
