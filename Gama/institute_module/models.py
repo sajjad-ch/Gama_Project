@@ -41,6 +41,10 @@ class HeadlineCourse(models.Model):
     def __str__(self):
         return f'{self.headline_name} در {self.course.course_name}'
     
+    class Meta:
+        verbose_name = 'سر فصل'
+        verbose_name_plural = 'سر فصل ها'
+    
 
 class LessonsHeadline(models.Model):
     headline = models.ForeignKey(HeadlineCourse, verbose_name='سر فصل', on_delete=models.CASCADE)
@@ -48,6 +52,10 @@ class LessonsHeadline(models.Model):
 
     def __str__(self):
         return f'{self.lesson_name} در  {self.headline.headline_name}'
+
+    class Meta:
+        verbose_name = 'درس سرفصل'
+        verbose_name_plural = 'درس های سر فصل'
 
 
 class Registeration(models.Model):
