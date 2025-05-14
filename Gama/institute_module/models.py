@@ -3,8 +3,17 @@ from django.db import models
 from staff_module.models import Department
 # Create your models here.
 
-course_age = ()
-type_of_sliders = ()
+course_age = (
+    ('خردسال', 'خردسال'),
+    ('نوجوان', 'نوجوان'),
+    ('جوان', 'جوان'),
+    ('بزرگسال', 'بزرگسال'),
+    ('تمامی سنین', 'تمامی سنین'),
+)
+type_of_sliders = (
+    ('خبر', 'خبر'),
+    ('تخفیفات', 'تخفیفات'),
+)
 
 class Course(models.Model):
     course_picture = models.ImageField(upload_to='Courses/', verbose_name='تصویر دوره')
