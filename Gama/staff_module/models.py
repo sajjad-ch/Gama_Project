@@ -20,6 +20,7 @@ class Collabrations(models.Model):
     last_name = models.CharField(max_length=128, verbose_name='نام خانوادگی')
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
     department = models.ForeignKey(Department, on_delete=models.DO_NOTHING, verbose_name='دپارتمان')
+    resume_file = models.FileField(upload_to='collabration/' ,verbose_name='فایل رزومه', null=True, blank=True)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name} {self.department}'
@@ -35,6 +36,7 @@ class HumanRecourceNeed(models.Model):
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
     job_title = models.CharField(max_length=128, verbose_name='عنوان شغلی')
     department = models.ForeignKey(Department, on_delete=models.DO_NOTHING, verbose_name='دپارتمان')
+    resume_file = models.FileField(upload_to='HR/' ,verbose_name='فایل رزومه', null=True, blank=True)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name} {self.department}'

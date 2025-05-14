@@ -28,3 +28,17 @@ class CommentsAndSuggestionsSerializer(serializers.ModelSerializer):
         model = CommentsAndSuggestions
         fields = "__all__"
         read_only_fields = ['id']
+
+
+class HeadlineCourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HeadlineCourse
+        fields = "__all__"
+        read_only_fields = ['id']
+
+
+class LessonsHeadlineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LessonsHeadline
+        fields = "__all__"
+        read_only_fields = ['id']

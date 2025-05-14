@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from staff_module.models import Department
 # Create your models here.
@@ -15,6 +16,7 @@ class Course(models.Model):
     course_level = models.CharField(max_length=128, null=True, blank=True, verbose_name='سطح')
     course_age = models.CharField(max_length=128, verbose_name='سن دوره', choices=course_age)
     course_session_number = models.PositiveSmallIntegerField(verbose_name='تعداد جلسات')
+    course_start_date = models.DateTimeField(null=True, blank=True, verbose_name='زمان شروع دوره')
     rank = models.FloatField(verbose_name='امتیاز دوره', default=0.0)
     is_active = models.BooleanField(default=False, verbose_name='فعال/غیر فعال')
     is_registering = models.BooleanField(default=False, verbose_name='در حال ثبت نام')
@@ -26,6 +28,26 @@ class Course(models.Model):
     class Meta:
         verbose_name = 'دوره'
         verbose_name_plural = 'دوره ها'
+
+    def time_until_start(self):
+        now = timezone.now()
+        return max(self.course_start_date - now, timezone.timedelta(0))
+
+
+class HeadlineCourse(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='دوره')
+    headline_name = models.CharField(max_length=128, verbose_name='نام سرفصل')
+
+    def __str__(self):
+        return f'{self.headline_name} در {self.course.course_name}'
+    
+
+class LessonsHeadline(models.Model):
+    headline = models.ForeignKey(HeadlineCourse, verbose_name='سر فصل', on_delete=models.CASCADE)
+    lesson_name = models.CharField(max_length=128, verbose_name='نام درس')
+
+    def __str__(self):
+        return f'{self.lesson_name} در  {self.headline.headline_name}'
 
 
 class Registeration(models.Model):
