@@ -5,3 +5,6 @@ from .models import *
 admin.site.register(Course)
 admin.site.register(Registeration)
 admin.site.register(Slider)
+admin.site.register(HeadlineCourse)
+admin.site.register(LessonsHeadline)
+admin.site.register(CommentsAndSuggestions)
