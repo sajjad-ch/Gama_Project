@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # outside_apps
     'rest_framework',
+    'nested_admin',
     
     # custom_apps
     "user_module",

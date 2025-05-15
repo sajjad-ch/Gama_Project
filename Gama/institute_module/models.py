@@ -60,8 +60,8 @@ class LessonsHeadline(models.Model):
     lesson_name = models.CharField(max_length=128, verbose_name='نام درس')
 
     def __str__(self):
-        return f'{self.lesson_name} در  {self.headline.headline_name}'
-
+        return self.lesson_name
+    
     class Meta:
         verbose_name = 'درس سرفصل'
         verbose_name_plural = 'درس های سر فصل'
