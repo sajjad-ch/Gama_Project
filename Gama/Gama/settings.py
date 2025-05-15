@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # outside_apps
     'rest_framework',
     'nested_admin',
+    'drf_spectacular',
     
     # custom_apps
     "user_module",
@@ -140,4 +141,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
