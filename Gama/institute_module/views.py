@@ -17,8 +17,11 @@ class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
     pagination_class = LimitOffsetPagination
-    permission_classes = [permissions.IsAdminUser]
 
+    def get_permissions(self):
+        if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
+            return [permissions.IsAdminUser()]
+        return [permissions.AllowAny()]
 
 class RegisteraionViewSet(viewsets.ModelViewSet):
     queryset = Registeration.objects.all()
