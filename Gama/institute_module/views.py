@@ -16,7 +16,6 @@ from rest_framework.pagination import LimitOffsetPagination
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    pagination_class = LimitOffsetPagination
 
     def get_permissions(self):
         if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
