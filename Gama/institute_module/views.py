@@ -35,8 +35,8 @@ class SliderViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
-            return [permissions.IsAdminUser]
-        return [permissions.AllowAny]
+            return [permissions.IsAdminUser()]
+        return [permissions.AllowAny()]
 
 
 class CommentAndSuggestionViewSet(viewsets.ModelViewSet):
@@ -52,8 +52,8 @@ class HeadlineCourseViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
-            return [permissions.IsAdminUser]
-        return [permissions.AllowAny]
+            return [permissions.IsAdminUser()]
+        return [permissions.AllowAny()]
 
 
 class LessonsHeadlineViewSet(viewsets.ModelViewSet):
@@ -62,8 +62,8 @@ class LessonsHeadlineViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
-            return [permissions.IsAdminUser]
-        return [permissions.AllowAny]
+            return [permissions.IsAdminUser()]
+        return [permissions.AllowAny()]
 
 class FilterActiveCourseView(APIView):
     def post(self, request):
