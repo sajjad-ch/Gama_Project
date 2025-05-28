@@ -19,4 +19,4 @@ urlpatterns = [
     path('search-department/<str:department_name>/', SearchDepartmentCourseView.as_view(), name='search-department'),
 ]
 
-urlpatterns = router.urls
+urlpatterns += router.urls
