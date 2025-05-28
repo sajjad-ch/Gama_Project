@@ -68,8 +68,8 @@ class LessonsHeadline(models.Model):
 
 
 class Registeration(models.Model):
-    first_name = models.CharField(max_length=128, verbose_name='نام')
-    last_name = models.CharField(max_length=128, verbose_name='نام خانوادگی')
+    full_name = models.CharField(max_length=128, verbose_name='نام و نام خانوادگی')
+    email = models.EmailField(verbose_name='ایمیل', null=True, blank=True)
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='دوره')
 
@@ -82,7 +82,8 @@ class Registeration(models.Model):
 
 
 class CommentsAndSuggestions(models.Model):
-    first_name_and_last_name = models.CharField(max_length=128, verbose_name='نام و نام خانوادگی')
+    full_name = models.CharField(max_length=128, verbose_name='نام و نام خانوادگی')
+    email = models.EmailField(verbose_name='ایمیل', null=True, blank=True)
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
     comment_or_suggestion = models.TextField()
 

@@ -16,8 +16,8 @@ class Department(models.Model):
 
 
 class Collabrations(models.Model):
-    first_name = models.CharField(max_length=128, verbose_name='نام')
-    last_name = models.CharField(max_length=128, verbose_name='نام خانوادگی')
+    full_name = models.CharField(max_length=128, verbose_name='نام و نام خانوادگی')
+    email = models.EmailField(verbose_name='ایمیل', null=True, blank=True)
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
     department = models.ForeignKey(Department, on_delete=models.DO_NOTHING, verbose_name='دپارتمان')
     resume_file = models.FileField(upload_to='collabration/' ,verbose_name='فایل رزومه', null=True, blank=True)
@@ -31,8 +31,8 @@ class Collabrations(models.Model):
 
 
 class HumanRecourceNeed(models.Model):
-    first_name = models.CharField(max_length=128, verbose_name='نام')
-    last_name = models.CharField(max_length=128, verbose_name='نام خانوادگی')
+    full_name = models.CharField(max_length=128, verbose_name='نام و نام خانوادگی')
+    email = models.EmailField(verbose_name='ایمیل', null=True, blank=True)
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
     job_title = models.CharField(max_length=128, verbose_name='عنوان شغلی')
     department = models.ForeignKey(Department, on_delete=models.DO_NOTHING, verbose_name='دپارتمان')
