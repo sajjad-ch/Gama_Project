@@ -12,11 +12,11 @@ router.register(r'headline_course', HeadlineCourseViewSet)
 router.register(r'lessons_headline', LessonsHeadlineViewSet)
 
 urlpatterns = [
-    path('filter_active_course/', FilterActiveCourseView.as_view()),
-    path('FilterRegisteringCourseView/', FilterRegisteringCourseView.as_view()),
-    path('FilterCompletingRegisteringView/', FilterCompletingRegisteringView.as_view()),
-    path('search-course/<str:course_name>/', SearchCourseView.as_view()),
-    path('search-department/<str:department_name>/', SearchDepartmentCourseView.as_view()),
+    path('filter_active_course/', FilterActiveCourseView.as_view(), name='active-course'),
+    path('filter_registering_course/', FilterRegisteringCourseView.as_view(), name='registering-course'),
+    path('filter_completing_registering/', FilterCompletingRegisteringView.as_view(), name='completeing-registering'),
+    path('search-course/<str:course_name>/', SearchCourseView.as_view(), name='search-course'),
+    path('search-department/<str:department_name>/', SearchDepartmentCourseView.as_view(), name='search-department'),
 ]
 
 urlpatterns = router.urls
