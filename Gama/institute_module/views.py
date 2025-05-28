@@ -32,8 +32,11 @@ class RegisteraionViewSet(viewsets.ModelViewSet):
 class SliderViewSet(viewsets.ModelViewSet):
     queryset = Slider.objects.all()
     serializer_class = SliderSerializer
-    pagination_class = LimitOffsetPagination
-    permission_classes = [permissions.IsAdminUser]
+
+    def get_permissions(self):
+        if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
+            return [permissions.IsAdminUser]
+        return [permissions.AllowAny]
 
 
 class CommentAndSuggestionViewSet(viewsets.ModelViewSet):
