@@ -49,16 +49,21 @@ class CommentAndSuggestionViewSet(viewsets.ModelViewSet):
 class HeadlineCourseViewSet(viewsets.ModelViewSet):
     queryset = HeadlineCourse.objects.all()
     serializer_class = HeadlineCourseSerializer
-    pagination_class = LimitOffsetPagination
-    permission_classes = [permissions.IsAdminUser]
+
+    def get_permissions(self):
+        if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
+            return [permissions.IsAdminUser]
+        return [permissions.AllowAny]
 
 
 class LessonsHeadlineViewSet(viewsets.ModelViewSet):
     queryset = LessonsHeadline.objects.all()
     serializer_class = LessonsHeadlineSerializer
-    pagination_class = LimitOffsetPagination
-    permission_classes = [permissions.IsAdminUser]
 
+    def get_permissions(self):
+        if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
+            return [permissions.IsAdminUser]
+        return [permissions.AllowAny]
 
 class FilterActiveCourseView(APIView):
     def post(self, request):
