@@ -74,7 +74,7 @@ class Registeration(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='دوره')
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name} {self.course}'
+        return f'{self.full_name} {self.course}'
 
     class Meta:
         verbose_name = 'ثبت نامی'
@@ -83,12 +83,12 @@ class Registeration(models.Model):
 
 class CommentsAndSuggestions(models.Model):
     full_name = models.CharField(max_length=128, verbose_name='نام و نام خانوادگی')
-    email = models.EmailField(verbose_name='ایمیل', null=True, blank=True)
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
     comment_or_suggestion = models.TextField()
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.first_name_and_last_name} با شماره همراه {self.phone_number}'
+        return f'{self.full_name} با شماره همراه {self.phone_number}'
     
     class Meta:
         verbose_name = 'نظر یا پیشنهاد'
