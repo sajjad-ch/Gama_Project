@@ -9,6 +9,7 @@ admin.site.register(Slider)
 admin.site.register(HeadlineCourse)
 admin.site.register(LessonsHeadline)
 admin.site.register(CommentsAndSuggestions)
+admin.site.register(InstitueData)
 
 class LessonsHeadlineAdmin(nested_admin.nested.NestedStackedInline):
     model = LessonsHeadline

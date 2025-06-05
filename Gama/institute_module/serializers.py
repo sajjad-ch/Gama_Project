@@ -42,3 +42,10 @@ class LessonsHeadlineSerializer(serializers.ModelSerializer):
         model = LessonsHeadline
         fields = "__all__"
         read_only_fields = ['id']
+
+
+class InstitueDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InstitueData
+        fields = "__all__"
+        read_only_fields = ['id']

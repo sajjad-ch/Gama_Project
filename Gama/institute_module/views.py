@@ -65,6 +65,17 @@ class LessonsHeadlineViewSet(viewsets.ModelViewSet):
             return [permissions.IsAdminUser()]
         return [permissions.AllowAny()]
 
+
+class InstitueDataViewSet(viewsets.ModelViewSet):
+    queryset = InstitueData.objects.all()
+    serializer_class = InstitueDataSerializer
+
+    def get_permissions(self):
+        if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
+            return [permissions.IsAdminUser()]
+        return [permissions.AllowAny()]
+
+
 class FilterActiveCourseView(APIView):
     def post(self, request):
         active_courses: Course = Course.objects.filter(is_active=True).all()

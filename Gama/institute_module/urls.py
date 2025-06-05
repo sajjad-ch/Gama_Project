@@ -10,6 +10,7 @@ router.register(r'slider', SliderViewSet)
 router.register(r'comment_suggestion', CommentAndSuggestionViewSet)
 router.register(r'headline_course', HeadlineCourseViewSet)
 router.register(r'lessons_headline', LessonsHeadlineViewSet)
+router.register(r'institue_data', InstitueDataViewSet)
 
 urlpatterns = [
     path('filter_active_course/', FilterActiveCourseView.as_view(), name='active-course'),
