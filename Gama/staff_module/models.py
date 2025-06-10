@@ -42,7 +42,7 @@ class HumanRecourceNeed(models.Model):
     created_at = jmodels.jDateTimeField(auto_now_add=True, verbose_name='تاریخ ثبت درخواست')
 
     def __str__(self):
-        return f'{self.full_name} {self.department}'
+        return f'{self.company_name}'
     
     class Meta:
         verbose_name = 'درخواست منابع انسانی'
