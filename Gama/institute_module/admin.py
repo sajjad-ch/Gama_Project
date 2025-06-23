@@ -16,7 +16,7 @@ class RegisterationModelAdmin(admin.ModelAdmin):
         return super().save_model(request, obj, form, change)
 
 
-admin.site.register(Registeration)
+admin.site.register(Registeration, RegisterationModelAdmin)
 admin.site.register(Slider)
 admin.site.register(HeadlineCourse)
 admin.site.register(LessonsHeadline)
