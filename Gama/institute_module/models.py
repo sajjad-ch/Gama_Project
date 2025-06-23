@@ -74,6 +74,7 @@ class Registeration(models.Model):
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='دوره')
     created_at = jmodels.jDateTimeField(auto_now_add=True, verbose_name='تاریخ ثبت نام')
+    is_seen = models.BooleanField(default=False, verbose_name='دیده شده / نشده')
 
     def __str__(self):
         return f'{self.full_name} {self.course}'

@@ -24,6 +24,7 @@ class Collabrations(models.Model):
     resume_file = models.FileField(upload_to='collabration/' ,verbose_name='فایل رزومه', null=True, blank=True)
     explanation = models.TextField(verbose_name='توضیحات بیشتر', null=True, blank=True)
     created_at = jmodels.jDateTimeField(auto_now_add=True, verbose_name='تاریخ ثبت همکاری')
+    is_seen = models.BooleanField(default=False, verbose_name='دیده شده / نشده')
 
     def __str__(self):
         return f'{self.full_name} {self.department}'
@@ -40,6 +41,7 @@ class HumanRecourceNeed(models.Model):
     job_title = models.CharField(max_length=128, verbose_name='عنوان شغلی')
     explanation = models.TextField(verbose_name='توضیحات بیشتر', null=True, blank=True)
     created_at = jmodels.jDateTimeField(auto_now_add=True, verbose_name='تاریخ ثبت درخواست')
+    is_seen = models.BooleanField(default=False, verbose_name='دیده شده / نشده')
 
     def __str__(self):
         return f'{self.company_name}'
