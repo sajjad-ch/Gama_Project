@@ -4,9 +4,9 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 
 class User(AbstractUser):
-    personal_id = models.PositiveIntegerField(auto_created=True, editable=False, verbose_name='شماره پرسنلی')
-    role = models.CharField(max_length=128, verbose_name='نقش')
-    phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
+    personal_id = models.PositiveIntegerField(auto_created=True, editable=False, verbose_name='شماره پرسنلی', null=True, blank=True)
+    role = models.CharField(max_length=128, verbose_name='نقش', null=True, blank=True)
+    phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه', null=True, blank=True)
 
     class Meta:
         verbose_name = 'کاربر'
