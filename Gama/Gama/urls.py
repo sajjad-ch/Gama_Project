@@ -21,12 +21,12 @@ from django.urls import path, include, re_path
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("backend/admin/", admin.site.urls),
     re_path(r'^_nested_admin/', include('nested_admin.urls')),
-    path("institute/", include("institute_module.urls")),
-    path("staff/", include("staff_module.urls")),
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path("backend/institute/", include("institute_module.urls")),
+    path("backend/staff/", include("staff_module.urls")),
+    path('backend/api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('backend/api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
 ]
 
 if settings.DEBUG:
