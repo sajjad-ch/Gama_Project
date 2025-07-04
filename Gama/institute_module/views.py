@@ -11,6 +11,10 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.pagination import LimitOffsetPagination
+
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
 # Create your views here.
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -39,6 +43,7 @@ class SliderViewSet(viewsets.ModelViewSet):
         return [permissions.AllowAny()]
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CommentAndSuggestionViewSet(viewsets.ModelViewSet):
     queryset = CommentsAndSuggestions.objects.all()
     serializer_class = CommentsAndSuggestionsSerializer
