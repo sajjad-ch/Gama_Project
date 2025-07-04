@@ -24,11 +24,11 @@ class DepartmentViewSet(viewsets.ModelViewSet):
 class CollabrationsViewSet(viewsets.ModelViewSet):
     queryset = Collabrations.objects.all()
     serializer_class = CollabrationsSerializer
-    permission_classes = [permissions.AllowAny]
+    # permission_classes = [permissions.AllowAny]
 
 
 class HumanRecourceNeedViewSet(viewsets.ModelViewSet):
     queryset = HumanRecourceNeed.objects.all()
     serializer_class = HumanRecourceNeedSerializer
-    permission_classes = [permissions.AllowAny]
+    # permission_classes = [permissions.AllowAny]
     
