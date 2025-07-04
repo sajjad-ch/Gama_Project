@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 from .models import *
 from .serializers import *
-from .utils import CsrfExemptViewSetMixin
 
 from rest_framework import viewsets
 from rest_framework import permissions
@@ -40,7 +39,7 @@ class SliderViewSet(viewsets.ModelViewSet):
         return [permissions.AllowAny()]
 
 
-class CommentAndSuggestionViewSet(CsrfExemptViewSetMixin, viewsets.ModelViewSet):
+class CommentAndSuggestionViewSet(viewsets.ModelViewSet):
     queryset = CommentsAndSuggestions.objects.all()
     serializer_class = CommentsAndSuggestionsSerializer
     pagination_class = LimitOffsetPagination
