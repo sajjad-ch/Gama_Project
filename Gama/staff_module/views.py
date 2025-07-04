@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from .models import *
 from .serializers import *
+from .utils import CsrfExemptViewSetMixin
 
 from rest_framework import viewsets
 from rest_framework import permissions
@@ -21,13 +22,13 @@ class DepartmentViewSet(viewsets.ModelViewSet):
         return [permissions.AllowAny()]
 
 
-class CollabrationsViewSet(viewsets.ModelViewSet):
+class CollabrationsViewSet(CsrfExemptViewSetMixin, viewsets.ModelViewSet):
     queryset = Collabrations.objects.all()
     serializer_class = CollabrationsSerializer
     # permission_classes = [permissions.AllowAny]
 
 
-class HumanRecourceNeedViewSet(viewsets.ModelViewSet):
+class HumanRecourceNeedViewSet(CsrfExemptViewSetMixin, viewsets.ModelViewSet):
     queryset = HumanRecourceNeed.objects.all()
     serializer_class = HumanRecourceNeedSerializer
     # permission_classes = [permissions.AllowAny]
