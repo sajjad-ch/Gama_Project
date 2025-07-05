@@ -7,6 +7,7 @@ class Department(models.Model):
     department_name = models.CharField(max_length=128, unique=True, verbose_name='نام دپارتمان')
     is_active = models.BooleanField(default=True, verbose_name='فعال/غیر فعال')
     created_at = jmodels.jDateTimeField(null=True, blank=True, verbose_name='تاریخ ایجاد دپارتمان')
+    icon = models.ImageField(upload_to='department_icon/', null=True, blank=True, verbose_name='آیکون دپارتمان')
 
     def __str__(self):
         return f'{self.department_name}'
