@@ -28,3 +28,4 @@ class HumanRecourceNeedModelAdmin(admin.ModelAdmin):
 admin.site.register(Department)
 admin.site.register(Collabrations, CollabrationsModelAdmin)
 admin.site.register(HumanRecourceNeed, HumanRecourceNeedModelAdmin)
+admin.site.register(JobTitle)
