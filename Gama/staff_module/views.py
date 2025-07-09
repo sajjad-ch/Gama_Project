@@ -31,4 +31,13 @@ class HumanRecourceNeedViewSet(viewsets.ModelViewSet):
     queryset = HumanRecourceNeed.objects.all()
     serializer_class = HumanRecourceNeedSerializer
     permission_classes = [permissions.AllowAny]
+
+
+class JobTitleViewSet(viewsets.ModelViewSet):
+    queryset = JobTitle.objects.all()
+    serializer_class = JobTitleSerializer
     
+    def get_permissions(self):
+        if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
+            return [permissions.IsAdminUser()]
+        return [permissions.AllowAny()]

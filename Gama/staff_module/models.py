@@ -17,11 +17,22 @@ class Department(models.Model):
         verbose_name_plural = 'دپارتمان ها'
 
 
+class JobTitle(models.Model):
+    job_name = models.CharField(max_length=128, verbose_name='عنوان شغلی')
+
+    def __str__(self):
+        return f'{self.job_name}'
+    
+    class Meta:
+        verbose_name = 'عنوان شغلی'
+        verbose_name_plural = 'عنوان های شغلی'
+
+
 class Collabrations(models.Model):
     full_name = models.CharField(max_length=128, verbose_name='نام و نام خانوادگی')
     email = models.EmailField(verbose_name='ایمیل', null=True, blank=True)
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
-    department = models.ForeignKey(Department, on_delete=models.DO_NOTHING, verbose_name='دپارتمان')
+    job_title = models.ForeignKey(JobTitle, on_delete=models.DO_NOTHING, verbose_name='عنوان شغلی', null=True, blank=True)
     resume_file = models.FileField(upload_to='collabration/' ,verbose_name='فایل رزومه', null=True, blank=True)
     explanation = models.TextField(verbose_name='توضیحات بیشتر', null=True, blank=True)
     created_at = jmodels.jDateTimeField(auto_now_add=True, verbose_name='تاریخ ثبت همکاری')
@@ -41,6 +52,7 @@ class HumanRecourceNeed(models.Model):
     phone_number = models.CharField(max_length=11, verbose_name='تلفن همراه')
     job_title = models.CharField(max_length=128, verbose_name='عنوان شغلی')
     explanation = models.TextField(verbose_name='توضیحات بیشتر', null=True, blank=True)
+    resume_file = models.FileField(upload_to='HumanRecourceNeed/' ,verbose_name='فایل رزومه', null=True, blank=True)
     created_at = jmodels.jDateTimeField(auto_now_add=True, verbose_name='تاریخ ثبت درخواست')
     is_seen = models.BooleanField(default=False, verbose_name='دیده شده / نشده')
 
