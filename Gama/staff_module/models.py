@@ -39,7 +39,7 @@ class Collabrations(models.Model):
     is_seen = models.BooleanField(default=False, verbose_name='دیده شده / نشده')
 
     def __str__(self):
-        return f'{self.full_name} {self.department}'
+        return f'{self.full_name} {self.job_title}'
     
     class Meta:
         verbose_name = 'همکاری'
