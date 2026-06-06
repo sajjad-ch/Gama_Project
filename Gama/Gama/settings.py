@@ -153,12 +153,12 @@ REST_FRAMEWORK = {
 CORS_ALLOW_ALL_ORIGINS = True
 SECURE_SSL_REDIRECT = False
 AUTH_USER_MODEL = "user_module.User"
-ALLOWED_HOSTS = ["171.22.25.220", '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ["171.22.25.93", '127.0.0.1', 'localhost']
 CSRF_TRUSTED_ORIGINS = [
-    "http://171.22.25.220",
+    "https://171.22.25.93",
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://171.22.25.220",
+    "https://171.22.25.93",
 ]
 CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
 
